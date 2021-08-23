@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on Bleuje</title>
+    <link>/</link>
+    <description>Recent content in Home on Bleuje</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Bleuje</title>
+      <link>/about/</link>
+      <pubDate>Mon, 23 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description>I&amp;rsquo;m Etienne Jacob from France, born in 1994. I&amp;rsquo;m an engineer from Ecole des Ponts / MVA (I have studied computer science, applied maths and data science). I make gifs with programming on my free time.
+Articles on Colossal :
+ April 2018 December 2018  Some gifs that went viral :
+ this one (2018) that one (2020)  Contact : etin.jacob (at) gmail.com
+ Website made using Ivy hugo theme</description>
+    </item>
+    
+    <item>
+      <title>Social links</title>
+      <link>/social/</link>
+      <pubDate>Mon, 23 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/social/</guid>
+      <description>Twitter : The place where I&amp;rsquo;m most active, there you can find more works and process behind them. Maybe not the best place to follow me if you just want best finished works.
+  Instagram : Just if you like using Instagram. There&amp;rsquo;s a lot of traffic there but it&amp;rsquo;s not really well suited for gif art.
+  Tumblr blog : necessary-disorder : The roots of my gif art.</description>
+    </item>
+    
+    <item>
+      <title>Loop from periodic function and offset (Processing)</title>
+      <link>/tutorial2/</link>
+      <pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tutorial2/</guid>
+      <description>This tutorial is about explaining a quite general method to make animations that loop perfectly.
+You basically need 3 things :
+ A periodic function (1-periodic) What to do with the periodic function An offset function  All objects have the same periodic motion or change but with an offset, which can give patterns and a feeling of propagation. Here the periodic function has to be 1-periodic because time goes from 0 to 1.</description>
+    </item>
+    
+    <item>
+      <title>Making a first gif with Processing</title>
+      <link>/tutorial1/</link>
+      <pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tutorial1/</guid>
+      <description>This tutorial is about making a basic perfectly looping gif with Processing : a dot doing a circular loop.
+The trajectory of the black dot has to be described with maths : the angle depends on time and the radius is fixed. Hence if the radius of the circle is r, the position at time t can be defined with :
+ Note that if t goes from 0 to 1 (which will always be the case), the position at t=0 is the same as t=1.</description>
+    </item>
+    
+    <item>
+      <title>Noise propagation (Processing)</title>
+      <link>/tutorial3/</link>
+      <pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tutorial3/</guid>
+      <description>This tutorial is about a perfect loop technique that&amp;rsquo;s similar to periodic function propagation from the previous tutorial but using noise and more advanced technique. I call it &amp;ldquo;noise propagation&amp;rdquo;.
+Those things are added to the previous technique :
+ using noise to get a smooth periodic function using more dimensions of noise to get variation through space  The goal is to explain what&amp;rsquo;s behind an animation like this one :</description>
+    </item>
+    
+    <item>
+      <title>Replacement technique (Processing)</title>
+      <link>/tutorial4/</link>
+      <pubDate>Sat, 28 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/tutorial4/</guid>
+      <description>This is about a perfect loop technique that&amp;rsquo;s probably the one I use the most. It&amp;rsquo;s abstract and general : the idea is to have queue of objects. During the time of one gif loop, each object will take the position or state of next one. That&amp;rsquo;s why I call it the &amp;ldquo;replacement&amp;rdquo; technique.
+Basically we have one function like this one :
+ And to draw all objects with a perfect loop we do :</description>
+    </item>
+    
+    <item>
+      <title>Frequently asked questions</title>
+      <link>/faq/</link>
+      <pubDate>Thu, 26 Nov 2020 18:46:05 +0100</pubDate>
+      
+      <guid>/faq/</guid>
+      <description>What software do you use to make your animations? My animations are made by programming. Most of them have been made with Processing (Java version). I&amp;rsquo;ve also been using openFrameworks which is similar to Processing but in C++, and rarely Blender with python scripting for few gifs posted on Twitter. I also make stuff with shaders (GLSL) sometimes.
+How to learn to do this? To learn to draw stuff with code, I suggest watching The Coding Train.</description>
+    </item>
+    
+    <item>
+      <title>Animations</title>
+      <link>/animations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/animations/</guid>
+      <description>Click for selection of animations per year :
+(Warning : lots of rather heavy gifs to load, they are not compressed videos)
+  2021
+  2020
+  2019
+  2018
+  2017
+  Rare colorful gifs
+  It&amp;rsquo;s not designed for mobile so far and lightweight mp4 gallery might come when I&amp;rsquo;ll have motivation!
+There are some more on my twitter account, I kind of share more of the process behind gifs there.</description>
+    </item>
+    
+    <item>
+      <title>Tutorials</title>
+      <link>/tutorials/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tutorials/</guid>
+      <description>Making a first gif with Processing Loop from periodic function and offset (Processing) Noise propagation (Processing) Replacement technique (Processing)  Note : I&amp;rsquo;m a self taught creative coder, this is about sharing tricks I find useful. There may be bad habits and things I don&amp;rsquo;t know.
+Note 2 : Those tutorials are about general techniques and it can be better to avoid them to find more creative loop ideas.</description>
+    </item>
+    
+  </channel>
+</rss>

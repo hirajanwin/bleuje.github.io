@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Loop from periodic function and offset (Processing) - Bleuje</title>
+    <meta property="og:title" content="Loop from periodic function and offset (Processing) - Bleuje">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="This tutorial is about explaining a quite general method to make animations that loop perfectly.
+You basically need 3 things :
+[&amp;hellip;] All objects have the same periodic motion or change but with &amp;hellip;">
+      <meta property="og:description" content="This tutorial is about explaining a quite general method to make animations that loop perfectly.
+You basically need 3 things :
+[&amp;hellip;] All objects have the same periodic motion or change but with &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="tutorial2">
+    <header class="masthead">
+      <h1><a href="/">Bleuje</a></h1>
+
+<p class="tagline">Animated gifs, creative coding.</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">Home</a></li>
+  
+  <li><a href="/animations/">Animations</a></li>
+  
+  <li><a href="/faq/">FAQ</a></li>
+  
+  <li><a href="/tutorials/">Tutorials</a></li>
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/social/">Social links</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Loop from periodic function and offset (Processing)</h1>
+
+<h3>
+  2020-11-28</h3>
+<hr>
+
+
+      </header>
+
+
+
+
+
+<p>This tutorial is about explaining a quite general method to make animations that loop perfectly.</p>
+<p>You basically need 3 things :</p>
+<ol>
+<li>A periodic function (1-periodic)</li>
+<li>What to do with the periodic function</li>
+<li>An offset function</li>
+</ol>
+<p>All objects have the same periodic motion or change but with an offset, which can give patterns and a feeling of propagation. Here the periodic function has to be 1-periodic because time goes from 0 to 1.</p>
+<p>For example if we take</p>
+<ol>
+<li>Periodic function : Sinusoid</li>
+<li>Change : Size of a dot</li>
+<li>Offset : Distance from the center</li>
+</ol>
+<p>We can get a gif like this</p>
+<p><img src="/gifs/tuto2_radialoffset.gif" alt="radialoffset gif"></p>
+<p>Here the periodic function that controls the size of black dots is :</p>
+<script src="https://gist.github.com/Bleuje/4b615bf45691ba6d87a136889ac993a4.js"></script>
+<p>The interval [-1,1] of the sinusoid is mapped to [2,8]. The functions map, lerp and constrain (sometimes called clamp outside Processing) are in my opinion essential in creative coding so I strongly advise to learn about them if you haven&rsquo;t already.</p>
+<p>And the (radial) offset is :</p>
+<script src="https://gist.github.com/Bleuje/f24978a2163d3ca5ee4584f1cb60573b.js"></script>
+<p>The code to draw the black dots is the following :</p>
+<script src="https://gist.github.com/Bleuje/242ac65636e19ae7053a968089e9d7f6.js"></script>
+<p>The important line that means &ldquo;do the same thing with different offset&rdquo; is :</p>
+<script src="https://gist.github.com/Bleuje/c1771590fce94449c49a1cc8580902b3.js"></script>
+<p>There is a minus so that things propagate towards increasing offset values.</p>
+<p>Here I made a function to compute the offset for the sake of clarity of the tutorial but usually I just compute the offset in a variable before using it.</p>
+<p><strong>You can use any offset function, it will loop perfectly.</strong></p>
+<p>Here is the entire code to generate gif frames :</p>
+<script src="https://gist.github.com/Bleuje/8b643862583669b100290d009c41ab4a.js"></script>
+<p>Back to the offset :</p>
+<script src="https://gist.github.com/Bleuje/f24978a2163d3ca5ee4584f1cb60573b.js"></script>
+<p>You can notice that when the offset is the same modulo 1 we will get the same value of the periodic function at the same time, so here the pattern will be circles repeating every 100 pixels (x and y are positions in pixels).</p>
+<h2 id="more-examples">More examples</h2>
+<p>Now let&rsquo;s use this :</p>
+<ol>
+<li>Periodic function : Sinusoid</li>
+<li>Change : Line rotation</li>
+<li>Offset : (x+2*y)*constant</li>
+</ol>
+<p>This gif was obtained :</p>
+<p><img src="/gifs/tuto2_rotatinglines2.gif" alt="rotatinglines gif"></p>
+<p>The periodic function and the offset were :</p>
+<script src="https://gist.github.com/Bleuje/d65ea7c42537e2e19c54b543cfb585f7.js"></script>
+<p>The code to draw lines :</p>
+<script src="https://gist.github.com/Bleuje/a10041b10df7d4192b856eadfb67d7d4.js"></script>
+<p>The entire code :</p>
+<script src="https://gist.github.com/Bleuje/0e1e4c9c8facf5670cb8f814107678d7.js"></script>
+<p>Using noise (Perlin/simplex/openSimplex noise) as offset can be interesting.
+For example in the following gif (one of my early gifs) each object oscillates between two positions, and there is 2D noise as offset.</p>
+<p><img src="/gifs/echotuto.gif" alt="2dnoise offset gif"></p>
+<p>Here the examples are in 2D, this also works for 3D stuff.</p>
+<hr>
+<p><a href="/tutorials/">Tutorials list</a> <a href="/tutorial3/">Next tutorial</a></p>
+
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://bleuje.github.io">Etienne Jacob</a> 2021 | <a href="https://twitter.com/etiennejcb">Twitter</a> | <a href="https://www.instagram.com/etinjcb/">Instagram</a> | <a href="https://necessary-disorder.tumblr.com/">Tumblr</a>  | <a href="https://github.com/Bleuje">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

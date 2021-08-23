@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Replacement technique (Processing) - Bleuje</title>
+    <meta property="og:title" content="Replacement technique (Processing) - Bleuje">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="This is about a perfect loop technique that&amp;rsquo;s probably the one I use the most. It&amp;rsquo;s abstract and general : the idea is to have queue of objects. During the time of one gif loop, each &amp;hellip;">
+      <meta property="og:description" content="This is about a perfect loop technique that&amp;rsquo;s probably the one I use the most. It&amp;rsquo;s abstract and general : the idea is to have queue of objects. During the time of one gif loop, each &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="tutorial4">
+    <header class="masthead">
+      <h1><a href="/">Bleuje</a></h1>
+
+<p class="tagline">Animated gifs, creative coding.</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">Home</a></li>
+  
+  <li><a href="/animations/">Animations</a></li>
+  
+  <li><a href="/faq/">FAQ</a></li>
+  
+  <li><a href="/tutorials/">Tutorials</a></li>
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/social/">Social links</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Replacement technique (Processing)</h1>
+
+<h3>
+  2020-11-28</h3>
+<hr>
+
+
+      </header>
+
+
+
+
+
+<p>This is about a perfect loop technique that&rsquo;s probably the one I use the most. It&rsquo;s abstract and general : the idea is to have queue of objects. During the time of one gif loop, each object will take the position or state of next one. That&rsquo;s why I call it the &ldquo;replacement&rdquo; technique.</p>
+<p>Basically we have one function like this one :</p>
+<script src="https://gist.github.com/Bleuje/69cd27e43bbb445e69924053992448af.js"></script>
+<p>And to draw all objects with a perfect loop we do :</p>
+<script src="https://gist.github.com/Bleuje/d7fe63e4803de727cd50479a2e1c3083.js"></script>
+<p>K is the number of objects in the queue, I have often used this notation and I keep it in case you see the source code of my older gifs. Here we divide by K assuming p ranges from 0 to 1 in drawThing but that&rsquo;s not necessary. This works because t starts at 0 and ends at 1, so you reach the next index with (i+t) at the end of the loop.</p>
+<p>If drawThing has same state at p=0 and p=1 there is no problem, but if not you might just make objects out of sight at p=0 and p=1 to avoid objects that appear or disappear suddenly.</p>
+<p>So that&rsquo;s basically everything about this technique but so far it&rsquo;s astract&hellip; let&rsquo;s take an example.</p>
+<h2 id="an-example-for-the-replacement-technique">An example for the replacement technique</h2>
+<p>The aim is to make an animation like this one :</p>
+<p><img src="/gifs/replacementgiftarget.gif" alt="pie spiral"></p>
+<p>Here K=130 and the drawThing function draws a single pie.</p>
+<p>Let&rsquo;s choose a color palette from <a href="https://colorhunt.co">colorhunt.co</a> :</p>
+<script src="https://gist.github.com/Bleuje/7dd0899960910d7a713033f8085b98ee.js"></script>
+<p>To get the position at parameter p on the spiral one can use those equations :</p>
+<script src="https://gist.github.com/Bleuje/e5025452fa8532ec250d4fd9444c9d1d.js"></script>
+<p>The sqrt(p) gives us a good parametrization with constant speed.</p>
+<p>The idea for the pie design is to use three random values with noise. The ratio between a value and the sum of all values gives us the share of angle of a part.</p>
+<p>Here is some code to get random values that change with p :</p>
+<script src="https://gist.github.com/Bleuje/ae2ecf3524ffc1acf44ba42cb47d8392.js"></script>
+<p>It&rsquo;s basically 1D noise. The pow function is there to sometimes have values that are much larger than the others.</p>
+<p>Here is the code to draw a single pie at p :</p>
+<script src="https://gist.github.com/Bleuje/99211ff8df16dcdae8d5f4b783add620.js"></script>
+<p>Note that some rotation alpha of constant speed is added. The radius r of the pie varies so that pies appear and then disappear (p=0 and p=1).</p>
+<p>The entire code is the following :</p>
+<script src="https://gist.github.com/Bleuje/22304f850ad1b9e94ef1df8f031ddd3d.js"></script>
+<p>And here is a reminder of the result :</p>
+<p><img src="/gifs/replacementgiftarget.gif" alt="pie spiral"></p>
+<hr>
+<p>I often use the replacement technique with object oriented programming, each object having its own queue and random parameters.</p>
+<p><img src="/gifset/2019/gifs/2019_5_constrasthole.gif" alt="holeturn"></p>
+<p>By using it with a queue for each element of a 2D grid, you can achieve loops like this one :</p>
+<p><img src="/gifset/2019/gifs/2019_23_surfaceeffect.gif" alt="surface gif"></p>
+<hr>
+<p><a href="/tutorials/">Tutorials list</a></p>
+
+
+
+  <footer>
+  
+  
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://bleuje.github.io">Etienne Jacob</a> 2021 | <a href="https://twitter.com/etiennejcb">Twitter</a> | <a href="https://www.instagram.com/etinjcb/">Instagram</a> | <a href="https://necessary-disorder.tumblr.com/">Tumblr</a>  | <a href="https://github.com/Bleuje">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+

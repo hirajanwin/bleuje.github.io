@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Making a first gif with Processing - Bleuje</title>
+    <meta property="og:title" content="Making a first gif with Processing - Bleuje">
+    
+    <meta name="twitter:card" content="summary">
+
+    
+      
+    
+
+    
+      
+      <meta property="description" content="This tutorial is about making a basic perfectly looping gif with Processing : a dot doing a circular loop.
+The trajectory of the black dot has to be described with maths : the angle depends on time &amp;hellip;">
+      <meta property="og:description" content="This tutorial is about making a basic perfectly looping gif with Processing : a dot doing a circular loop.
+The trajectory of the black dot has to be described with maths : the angle depends on time &amp;hellip;">
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+
+<link href='//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  
+  <body class="tutorial1">
+    <header class="masthead">
+      <h1><a href="/">Bleuje</a></h1>
+
+<p class="tagline">Animated gifs, creative coding.</p>
+
+      <nav class="menu">
+  <input id="menu-check" type="checkbox" hidden/>
+  <label id="menu-label" for="menu-check" class="unselectable" hidden>
+    <span class="icon close-icon">✕</span>
+    <span class="icon open-icon">☰</span>
+    <span class="text">Menu</span>
+  </label>
+  <ul>
+  
+  
+  <li><a href="/">Home</a></li>
+  
+  <li><a href="/animations/">Animations</a></li>
+  
+  <li><a href="/faq/">FAQ</a></li>
+  
+  <li><a href="/tutorials/">Tutorials</a></li>
+  
+  <li><a href="/about/">About</a></li>
+  
+  <li><a href="/social/">Social links</a></li>
+  
+  
+  </ul>
+</nav>
+
+    </header>
+
+    <article class="main">
+      <header class="title">
+      
+<h1>Making a first gif with Processing</h1>
+
+<h3>
+  2020-11-28</h3>
+<hr>
+
+
+      </header>
+
+
+
+
+
+<p>This tutorial is about making a basic perfectly looping gif with Processing : a dot doing a circular loop.</p>
+<p><img src="/gifs/tuto1_firstgif.gif" alt="first gif"></p>
+<p>The trajectory of the black dot has to be described with maths : the angle depends on time and the radius is fixed.
+Hence if the radius of the circle is r, the position at time t can be defined with :</p>
+<script src="https://gist.github.com/Bleuje/6de1e5ffebf633a157b9fcab72a3ef6e.js"></script>
+<p>Note that if t goes from 0 to 1 (which will always be the case), the position at t=0 is the same as t=1.</p>
+<p>So we want to save frames, for example numFrames = 100 frames from t=0 to t=1, but excluding t=1 because this frame is already saved at t=0 (or we take t=1 but not t=0&hellip; in the code below we&rsquo;ll actually take the t=1 frame).
+t can be defined as t = 1.0*frameCount/numFrames. Note that in Processing frameCount is incremented each time Processing&rsquo;s draw() function is called (it equals 1 on first call).</p>
+<p>Here is the entire code to save frames :</p>
+<script src="https://gist.github.com/Bleuje/45a11c1a0c67d5e698f6c78a4928b889.js"></script>
+<p>saveFrame(&ldquo;fr###.gif&rdquo;); saves frames with a number equal to frameCount and with leading zeros.</p>
+<p>In this tutorial I used Processing but you can obviously do the same with your favourite programming tool that&rsquo;s able to draw and save frames.</p>
+<h2 id="how-to-make-an-animated-gif-from-the-frames">How to make an animated gif from the frames</h2>
+<p>There are many ways to make animated gifs from frames.</p>
+<p>I personally use the command line tool <a href="https://www.lcdf.org/gifsicle/">gifsicle</a>.</p>
+<p>Once you have it just run this in your frames folder to make an animated gif :</p>
+<pre><code>gifsicle --delay=2 --loop fr*.gif &gt; mygifname.gif
+</code></pre><p>The delay is in hundredth of second, so here it makes a 50 fps gif.</p>
+<p>As far as I know gifsicle only works from .gif frames, but there are lots of other ways to make animated gifs from a set of frames : ffmpeg, GIMP, Photoshop, ezgif.com&hellip;</p>
+<p>With gifsicle you might want to add the &ldquo;optimize&rdquo; flag especially if you want to get a very long gif with few changes between frames.</p>
+<pre><code>gifsicle --delay=2 --loop --optimize fr*.gif &gt; mygifname.gif
+</code></pre><p>For file size optimization I recommend using this website : <a href="https://ezgif.com/optimize">ezgif</a></p>
+<p>If this isn&rsquo;t enough, to have small file sizes you can try ;</p>
+<ul>
+<li>having fewer different colors</li>
+<li>having fewer changes between successive frames</li>
+<li>having smaller resolution</li>
+<li>having less frames</li>
+</ul>
+<!-- 
+## Make a gif automatically from Processing
+
+Remark from [wblut](https://twitter.com/wblut) : you can use Processing's launch function to run directly gifsicle from the Processing sketch once the frames are saved.
+
+<script src="https://gist.github.com/Bleuje/ce7e17e0399b8e502f7441bbb826b163.js"></script>
+
+The above code overwrites the previously saved gif of same filename, so you can insert a timestamp and/or random string in the filename to avoid that. -->
+<hr>
+<p><a href="/tutorials/">Tutorials list</a> <a href="/tutorial2/">Next tutorial</a></p>
+
+
+
+  <footer>
+  
+  
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/tex.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+  
+  <hr>
+  <div class="copyright">© <a href="https://bleuje.github.io">Etienne Jacob</a> 2021 | <a href="https://twitter.com/etiennejcb">Twitter</a> | <a href="https://www.instagram.com/etinjcb/">Instagram</a> | <a href="https://necessary-disorder.tumblr.com/">Tumblr</a>  | <a href="https://github.com/Bleuje">Github</a></div>
+  
+  </footer>
+  </article>
+  
+  </body>
+</html>
+
