@@ -7,6 +7,50 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Blender</title>
+      <link>/blender/</link>
+      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/blender/</guid>
+      <description>Generative stuff rendered with Blender.
+ Back to other stuff</description>
+    </item>
+    
+    <item>
+      <title>Other</title>
+      <link>/other/</link>
+      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/other/</guid>
+      <description>  Blender stills
+  Shaders
+  Physarum simulation
+  </description>
+    </item>
+    
+    <item>
+      <title>Physarum</title>
+      <link>/physarum/</link>
+      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/physarum/</guid>
+      <description>Work in progress : real-time &amp;ldquo;simulation&amp;rdquo; of physarum, using the paper from Jeff Jones and inspired by Sage Jenson.
+I&amp;rsquo;m using openFrameworks with GLSL shaders.
+Youtube video : 
+Back to other stuff</description>
+    </item>
+    
+    <item>
+      <title>Shaders</title>
+      <link>/shaders/</link>
+      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/shaders/</guid>
+      <description>You can see some of my shaders on ShaderToy : link to my shadertoy page.
+Back to other stuff</description>
+    </item>
+    
+    <item>
       <title>About Bleuje</title>
       <link>/about/</link>
       <pubDate>Mon, 30 Aug 2021 00:00:00 +0000</pubDate>
