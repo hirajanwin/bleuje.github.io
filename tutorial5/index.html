@@ -88,7 +88,7 @@
 
 <p>The replacement technique was already explained and illustrated in the <a href="/tutorial4/">previous tutorial</a>. This one shows both how to use it with objects that have random parameters, and also with a 2D grid structure : something I have used a lot.</p>
 <p>I came up with this gif as example for this tutorial :</p>
-<p><img src="/gifs/tuto5_digits.gif" alt="digits version"></p>
+<p><img src="/gifs/tuto5_digitsOpt.gif" alt="digits version"></p>
 <hr>
 <p>In the gif the positions of the boxes on one axis (x-axis) never change, and it moves along another axis (y-axis). We&rsquo;re going to use a 2D grid of boxes of size 70 x 4. The idea is that every object (box) will take the place 4 boxes later along y-axis.</p>
 <p>First let&rsquo;s make the grid of boxes and show them.</p>
@@ -96,40 +96,40 @@
 <script src="https://gist.github.com/Bleuje/41109d5b38dd52511c995a519e41e4fe.js"></script>
 <p>There&rsquo;s already the setup to render the animation although boxes don&rsquo;t move yet. I also already rotated the view as it is at the end. I made gifs at 50 fps (delay=2).
 L defines the size of the boxes.</p>
-<p><img src="/tutopics/tuto5_still.gif" alt="boxes still"></p>
+<p><img src="/tutopics/tuto5_stillOpt.gif" alt="boxes still"></p>
 <p>Now let&rsquo;s use replacement technique with our grid taking the next grid position when time is increased by 1.</p>
 <p>In Box class :</p>
 <script src="https://gist.github.com/Bleuje/71138048def05f7cfde307d49cc41245.js"></script>
 <p>We get something like this :</p>
-<p><img src="/gifs/tuto5_replacement.gif" alt="moving boxes"></p>
+<p><img src="/gifs/tuto5_replacementOpt.gif" alt="moving boxes"></p>
 <p>It does not look amazing but we&rsquo;ve got a nice structure behind and a large part of the work is done.</p>
 <p>Let&rsquo;s introduce a delay member in the box class that will determine when a box starts moving upwards :</p>
 <script src="https://gist.github.com/Bleuje/a853e70ba52bc7e7a847520457d67ccd.js"></script>
 <p>The variable &ldquo;changer&rdquo; is 0 before p==delay, then its value increases to 1 until p==delay+1.7, then its value stays at 1.
 So this is used to translate the height of our boxes. The result looks like this :</p>
-<p><img src="/gifs/tuto5_delay.gif" alt="introduced delay"></p>
+<p><img src="/gifs/tuto5_delayOpt.gif" alt="introduced delay"></p>
 <p>Let&rsquo;s try to have a delay that changes according to the y index so that the grid is less apparent.</p>
 <script src="https://gist.github.com/Bleuje/fd38a433a4ecd71a7f864945a5102223.js"></script>
 <p>Maybe I can make this formula logical by saying that when y and yIndex increase, we want the box to move later, so with more delay.</p>
-<p><img src="/gifs/tuto5_ydelay.gif" alt="delay with yIndex"></p>
+<p><img src="/gifs/tuto5_ydelayOpt.gif" alt="delay with yIndex"></p>
 <p>Now let&rsquo;s add some gaussian noise to the delay of each box to get something that looks more complex.</p>
 <script src="https://gist.github.com/Bleuje/efe074740ebdd50a45c6b42a9fecb55a.js"></script>
-<p><img src="/gifs/tuto5_gaussiandelay.gif" alt="gaussian delay"></p>
+<p><img src="/gifs/tuto5_gaussiandelayOpt.gif" alt="gaussian delay"></p>
 <p>To make this a bit more exciting we can use the easing function I found <a href="https://easings.net/">here</a></p>
 <script src="https://gist.github.com/Bleuje/9c35986a484f2f54e59f5f506ac0433d.js"></script>
 <p>Easing functions basically distort values between 0 and 1 and can be useful to get nice transitions. Here it&rsquo;s directly applied to the &ldquo;changer&rdquo; variable.</p>
 <script src="https://gist.github.com/Bleuje/0f21cc77ab3fab88d7861bd3e5dbcffa.js"></script>
-<p><img src="/gifs/tuto5_useofeasing.gif" alt="use of easing"></p>
+<p><img src="/gifs/tuto5_useofeasingOpt.gif" alt="use of easing"></p>
 <p>Then I&rsquo;ve done something with colors :</p>
 <script src="https://gist.github.com/Bleuje/9fc0f6e4e3424a9353edcc2b1892a50b.js"></script>
 <p>The pow on changer is a subtle change to have colors changing faster at the beginning (so it matches better the motion).
 Here is the result :</p>
-<p><img src="/gifs/tuto5_colors.gif" alt="color changes"></p>
+<p><img src="/gifs/tuto5_colorsOpt.gif" alt="color changes"></p>
 <p>Now, because we can do more random stuff for each object than the gaussian noise, I thought : let&rsquo;s add some digits :)
 You could also give a random color to each box, different easing, etc&hellip;</p>
 <p>The Box class with the digits (very few changes) :</p>
 <script src="https://gist.github.com/Bleuje/9c441d2312202feb48a59b247cbc6db0.js"></script>
-<p><img src="/gifs/tuto5_digits.gif" alt="digits version"></p>
+<p><img src="/gifs/tuto5_digitsOpt.gif" alt="digits version"></p>
 <p>One thing I sometimes do is to have a parameter of each object that changes with 1D noise and the &ldquo;p&rdquo; variable in this code (and with a different seed for each object).</p>
 <p>Thanks for reading and I hope you found this interesting or helpful.</p>
 <p>Here is the entire code for the last gif :</p>
