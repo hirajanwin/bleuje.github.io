@@ -7,6 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Replacement technique with 2D grid of objects</title>
+      <link>/tutorial5/</link>
+      <pubDate>Sat, 04 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/tutorial5/</guid>
+      <description>The replacement technique was already explained and illustrated in the previous tutorial. This one shows both how to use it with objects that have random parameters, and also with a 2D grid structure : something I have used a lot.
+I came up with this gif as example for this tutorial :
+ In the gif the positions of the boxes on one axis (x-axis) never change, and it moves along another axis (y-axis).</description>
+    </item>
+    
+    <item>
       <title>Blender</title>
       <link>/blender/</link>
       <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
@@ -153,7 +164,7 @@ How to learn to do this? To learn to draw stuff with code, I suggest watching Th
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/tutorials/</guid>
-      <description>Making a first gif with Processing Loop from periodic function and offset (Processing) Noise propagation (Processing) Replacement technique (Processing)  Note : I&amp;rsquo;m a self taught creative coder, this is about sharing tricks I find useful. There may be bad habits and things I don&amp;rsquo;t know.
+      <description>Making a first gif with Processing Loop from periodic function and offset (Processing) Noise propagation (Processing) Replacement technique (Processing) Replacement technique with 2D grid of objects (Processing)  Note : I&amp;rsquo;m a self taught creative coder, this is about sharing tricks I find useful. There may be bad habits and things I don&amp;rsquo;t know.
 Note 2 : Those tutorials are about general techniques and it can be better to avoid them to find more creative loop ideas.</description>
     </item>
     
