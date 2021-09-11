@@ -7,6 +7,30 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Folds</title>
+      <link>/folds/</link>
+      <pubDate>Sat, 11 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/folds/</guid>
+      <description>Continuing from the work by generateme, who explored 2D -&amp;gt; 2D functions, their combinations and their visualization. (blog, tutorial).
+I work on a project to explore and render them instantly using GPU instead of CPU. The project is made using openFrameworks and compute shaders.
+ Selected outputs from the program on Flickr  Back to other stuff</description>
+    </item>
+    
+    <item>
+      <title>Other</title>
+      <link>/other/</link>
+      <pubDate>Sat, 11 Sep 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/other/</guid>
+      <description>  Folds
+  Blender stills
+  Shaders
+  Physarum simulation
+  </description>
+    </item>
+    
+    <item>
       <title>Replacement technique with 2D grid of objects</title>
       <link>/tutorial5/</link>
       <pubDate>Sat, 04 Sep 2021 00:00:00 +0000</pubDate>
@@ -28,18 +52,6 @@ I came up with this gif as example for this tutorial :
  (2020)
  (2016)
  Back to other stuff</description>
-    </item>
-    
-    <item>
-      <title>Other</title>
-      <link>/other/</link>
-      <pubDate>Tue, 31 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>/other/</guid>
-      <description>  Blender stills
-  Shaders
-  Physarum simulation
-  </description>
     </item>
     
     <item>
@@ -83,9 +95,9 @@ Some gifs that went viral :</description>
       <pubDate>Mon, 23 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>/social/</guid>
-      <description>Twitter : The place where I&amp;rsquo;m most active, there you can find more works and process behind them. Maybe not the best place to follow me if you just want best finished works.
+      <description>Twitter : The place where I&amp;rsquo;m most active. Maybe not the best place to follow me if you just want best finished works.
   Instagram : Just if you like using Instagram. There&amp;rsquo;s a lot of traffic there but it&amp;rsquo;s not really well suited for gif art.
-  Tumblr blog : necessary-disorder : The roots of my gif art.</description>
+  Tumblr blog : necessary-disorder : The roots of my gif art. The quality of gifs is similar to this website and this is the place where I&amp;rsquo;ve got most followers (about 82 000 in August 2021).</description>
     </item>
     
     <item>
